@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+		
     },
     // deviceready Event Handler
     //
@@ -40,6 +41,8 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
+		document.addEventListener("offline", function(){ alert("You're offline") }, false);
+		document.addEventListener("online", function(){ alert("You're online") }, false);
 		
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
