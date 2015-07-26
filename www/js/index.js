@@ -27,6 +27,8 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+		document.addEventListener("offline", onOffline, false);
+		document.addEventListener("online", onOnline, false);
     },
     // deviceready Event Handler
     //
@@ -35,6 +37,12 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
+	onOffline:function(){
+		alert("offilene");
+	},
+	onOnline:function(){
+		alert("online");
+	},
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -43,9 +51,6 @@ var app = {
 		
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-		
-		connectionStatus = navigator.onLine ? 'online' : 'offline';
-		alert(connectionStatus);
 
         console.log('Received Event: ' + id);
     }
