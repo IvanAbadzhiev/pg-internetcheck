@@ -44,20 +44,8 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 		
-		if(navigator.connection.type==0)
-		{
-			alert('This application requires internet. Please connect to the internet.');
-
-		}
-		else if(navigator.connection.type=='none')
-		{
-			alert('This application requires internet. Please connect to the internet.');
-
-		}
-		else
-		{
-			alert("i am online");
-		}
+		connectionStatus = navigator.onLine ? 'online' : 'offline';
+		alert(connectionStatus);
 
         console.log('Received Event: ' + id);
     }
